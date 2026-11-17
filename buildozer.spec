@@ -14,3 +14,5 @@ requirements = python3,kivy,sqlite3
 orientation = portrait
 
 icon.filename = %(source.dir)s/pics/icon.png
+
+android.accept_sdk_license = True

@@ -16,3 +16,7 @@ orientation = portrait
 icon.filename = %(source.dir)s/pics/icon.png
 
 android.accept_sdk_license = True
+
+p4a.branch = develop
+android.api = 36
+android.ndk = 29

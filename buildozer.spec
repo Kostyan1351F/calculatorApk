@@ -9,7 +9,7 @@ version = 1.0.0
 source.dir = calc
 source.include_exts = py,png,jpg,kv,atlas
 
-requirements = python3,kivy,sqlite3
+requirements = python3,kivy,sqlite3,Cython<3.0
 
 orientation = portrait
 

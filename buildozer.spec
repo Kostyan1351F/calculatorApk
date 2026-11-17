@@ -1,10 +1,8 @@
 [app]
-
-title = Calculator
-
 package.name = calculator
 package.domain = org.test
 
+title = Calculator
 
 version = 1.0.0
 

@@ -16,4 +16,4 @@ android.accept_sdk_license = True
 android.archs = arm64-v8a
 p4a.branch = develop
 android.api = 36
-android.ndk = 29
+android.ndk = 28c

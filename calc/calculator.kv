@@ -1,0 +1,179 @@
+#:import Factory kivy.factory.Factory
+<CalculatorRoot>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'pics/fon2.png'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20, 20, 20, 20
+        spacing: 10
+
+        TextInput:
+            id: display
+            text: '0'
+            font_size: self.height * 0.6
+            size_hint_y: 0.2
+            readonly: True
+            halign: 'right'
+            padding: [10, 10]
+            background_color: 0.5, 0.5, 0.5, 0.5
+
+
+        GridLayout:
+            cols: 4
+            size_hint_y: 0.6
+            spacing: 5
+
+            Button:
+                text: '7'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '8'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '9'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '+'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+
+            Button:
+                text: '4'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '5'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '6'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '-'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+
+            Button:
+                text: '1'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '2'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '3'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '*'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+
+            Button:
+                text: 'DEL'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '0'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: 'C'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '/'
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+
+        BoxLayout:
+            size_hint_y: 0.2
+            spacing: 5
+            Button:
+                text: '='
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: '.'
+                size_hint_x: 0.333
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+            Button:
+                text: 'History'
+                size_hint_x: 0.5
+                font_size: '24sp'
+                on_press: root.on_button_press(self)
+                background_color: 0.5, 0.5, 0.5, 0.5
+                on_press:
+                    app.root.current = "History"
+                    app.root.transition.direction = "left"
+
+
+<HistoryScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'pics/fon1.png'
+
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            spacing: 10
+
+            Button:
+                text: "Back"
+                on_press:
+                    app.root.current = "Calculator"
+                    app.root.transition.direction = "right"
+            Button:
+                text: "Clear History"
+                on_press: root.clear_history()
+
+
+        ScrollView:
+            do_scroll_x: False
+            bar_width: 10
+
+            GridLayout:
+                id: history_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 5
+
+WinMan:
+    CalculatorRoot:
+    HistoryScreen:
